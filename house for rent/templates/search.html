@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+  
+    <h1>You searched for{{nothing}}</h1>
+
+    {% for prices,p_types, neighbors, IDs in res_list %}
+  
+    <div class="col-md-4">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <p class="card-text"> ${{prices}} <br /> 
+              <a class="btn-outline-secondary">{{neighbors}}</a></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'detail' IDs %}">Detail</a>
+            </div>
+            <small class="text-muted">{{p_types}}</small>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}

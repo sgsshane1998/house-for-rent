@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+  
+<div class="col-md-8">
+  <p>Admin ID: misy350 <br /> Password: django1234</p>
+  <p>Yes, I have completed the research project.</p>
+  <p>Bluehen Realty is a real estate brokerage that caters to the University of Delaware students and faculty. 
+    The Delaware-based company was founded in 2006 and went to the public in February 2018. Zheyi Bao is the CEO. 
+    The business model of Bluehen Realty is based on sellers paying Bluehen Realty a small fee. Your house deserves a 
+    better price and you deserve a better home. Contact us at 302-333-3330.
+  </p>
+  </div>
+  <div class="container">
+    <div class="row">
+  {% for price,neighbhourhood,room_type, IDs in comb_list %}
+  
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <p class="card-text"> ${{price}} <br /> 
+                <a class="btn-outline-secondary">{{neighbhourhood}}</a></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <a type="button" class="btn btn-sm btn-outline-secondary" href="{% url 'detail' IDs %}">Detail</a>
+              </div>
+              <small class="text-muted">{{room_type}}</small>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+  {% endfor %}
+
+    </div>
+  </div>
+
+<div class="col-md-4" class="ME">
+<p class="caption">University of Delaware Campus</p>
+</div>
+
+  </div>
+</div>
+
+{% endblock %}
